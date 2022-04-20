@@ -4,21 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class ColliionHandler : MonoBehaviour
 {
-    Rigidbody Rigidbody;
-   
 
+    [SerializeField] float levelLoadDelay = 2f;
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
     {
         switch (other.gameObject.tag)
         {
             case "Friendly":
-                Debug.Log("game started");
+                print("good");
                 break;
             case "Fuel":
                 print("You picked up fuel");
                 break;
             case "Finish":
-                Invoke("_ReloadLevel",0.5f);
+                StartSuccessSequence();
                 break;
             default:
 
@@ -28,13 +27,19 @@ public class ColliionHandler : MonoBehaviour
         }
 
     }
+    void StartSuccessSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("_ReloadLevel", levelLoadDelay);
+
+    }
 
     void StartCrashSequence()
     {
         GetComponent<Movement>().enabled = false;
-
-        Invoke("ReloadLevel",1f);
+        Invoke("ReloadLevel",levelLoadDelay);
     }
+   
     void ReloadLevel() // reloadmethod with the build index
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
