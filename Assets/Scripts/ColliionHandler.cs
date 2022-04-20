@@ -22,7 +22,7 @@ public class ColliionHandler : MonoBehaviour
                 break;
             default:
 
-                Invoke("StartCrashSequence",1f);  
+                StartCrashSequence();
                 break;
                
         }
@@ -33,7 +33,7 @@ public class ColliionHandler : MonoBehaviour
     {
         GetComponent<Movement>().enabled = false;
 
-        ReloadLevel();
+        Invoke("ReloadLevel",1f);
     }
     void ReloadLevel() // reloadmethod with the build index
     {
