@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{D0516E5F-914E-A53D-0B76-761763BD7743}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Movement.cs" Line="39" Column="13" />
+      <File FileName="Assets/Scripts/ColliionHandler.cs" Line="35" Column="60" />
+      <File FileName="Assets/Scripts/Ground.cs" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0db80cc7-b007-4712-834e-8fc5d009201e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
