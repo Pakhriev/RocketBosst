@@ -18,7 +18,7 @@ public class ColliionHandler : MonoBehaviour
                 print("You picked up fuel");
                 break;
             case "Finish":
-                _ReloadLevel();
+                Invoke("_ReloadLevel",0.5f);
                 break;
             default:
 
