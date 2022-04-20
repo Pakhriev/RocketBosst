@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ColliionHandler : MonoBehaviour
 {
-
+    Rigidbody Rigidbody;
    
 
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
@@ -22,15 +22,18 @@ public class ColliionHandler : MonoBehaviour
                 break;
             default:
 
-                Invoke("ReloadLevel",1f);  
+                Invoke("StartCrashSequence",1f);  
                 break;
-                
-            
-
-
+               
         }
-        
 
+    }
+
+    void StartCrashSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+
+        ReloadLevel();
     }
     void ReloadLevel() // reloadmethod with the build index
     {
