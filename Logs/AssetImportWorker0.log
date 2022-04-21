@@ -238,3 +238,21 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 652.888630 seconds.
+  path: Assets/Sound Effects
+  artifactKey: Guid(ac4b75f999159443d86ad08b6019f9af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound Effects using Guid(ac4b75f999159443d86ad08b6019f9af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcbfcbb95b1c5401270f62ced74f9c31') in 0.044542 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.705939 seconds.
+  path: Assets/Sound Effects/SFX - Death Explosion.ogg
+  artifactKey: Guid(023fb3795bbfa4d7ca21531a4a7c3030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound Effects/SFX - Death Explosion.ogg using Guid(023fb3795bbfa4d7ca21531a4a7c3030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87f3ead0610d25e21a7b4600c9a8ece5') in 0.227201 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.255910 seconds.
+  path: Assets/Sound Effects/SFX - Success.ogg
+  artifactKey: Guid(9f7d1b454a9ce422fb96608411903543) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sound Effects/SFX - Success.ogg using Guid(9f7d1b454a9ce422fb96608411903543) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '219fd1bfe01bae15b5efaf02cb828c3c') in 0.004943 seconds 
