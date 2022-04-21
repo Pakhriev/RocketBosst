@@ -27,13 +27,16 @@ public class ColliionHandler : MonoBehaviour
         }
 
     }
+    // to do add SFX upon crash
+    // to do add particle effect upon crush
     void StartSuccessSequence()
     {
         GetComponent<Movement>().enabled = false;
         Invoke("_ReloadLevel", levelLoadDelay);
 
     }
-
+    // to do add SFX upon crash
+    // to do add particle effect upon crush
     void StartCrashSequence()
     {
         GetComponent<Movement>().enabled = false;
