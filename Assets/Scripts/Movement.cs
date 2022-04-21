@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] float mainTrust = 100f;
     [SerializeField] float rotateMoveSpeed = 5;
+    [SerializeField] AudioClip mainEngine;
         
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             rigitBody.AddRelativeForce(Vector3.up * mainTrust * Time.deltaTime);
-            m_audiosource.Play();
+            m_audiosource.PlayOneShot(mainEngine);
         }
         else if (!isPlaying)
         {

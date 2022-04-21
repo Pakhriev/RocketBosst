@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 public class ColliionHandler : MonoBehaviour
 {
 
-    [SerializeField] float levelLoadDelay = 2f;
+    AudioSource audiosource;
+
+    [SerializeField] AudioClip deathingpoint;
+    [SerializeField] AudioClip succesPoint;
+     [SerializeField] float levelLoadDelay = 2f;
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
     {
         switch (other.gameObject.tag)
@@ -17,11 +21,13 @@ public class ColliionHandler : MonoBehaviour
                 print("You picked up fuel");
                 break;
             case "Finish":
+                Success();
                 StartSuccessSequence();
                 break;
             default:
 
                 StartCrashSequence();
+                death();
                 break;
                
         }
@@ -63,6 +69,16 @@ public class ColliionHandler : MonoBehaviour
 
         
     }
-        
+    void death()
+    {
+        audiosource = GetComponent<AudioSource>();
+        audiosource.PlayOneShot(deathingpoint);
+    }
+    void Success()
+    {
+        audiosource = GetComponent<AudioSource>();
+        audiosource.PlayOneShot(succesPoint);
+    }
+   
 
 }
