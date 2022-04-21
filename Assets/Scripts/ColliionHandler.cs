@@ -10,8 +10,14 @@ public class ColliionHandler : MonoBehaviour
     [SerializeField] AudioClip deathingpoint;
     [SerializeField] AudioClip succesPoint;
      [SerializeField] float levelLoadDelay = 2f;
+    bool isTransioning  = false;
+   void Start()
+    {
+        audiosource = GetComponent<AudioSource>();
+    }
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
     {
+        if(isTransioning) { return; }
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -21,13 +27,13 @@ public class ColliionHandler : MonoBehaviour
                 print("You picked up fuel");
                 break;
             case "Finish":
-                Success();
+            
                 StartSuccessSequence();
                 break;
             default:
 
                 StartCrashSequence();
-                death();
+              
                 break;
                
         }
@@ -37,16 +43,24 @@ public class ColliionHandler : MonoBehaviour
     // to do add particle effect upon crush
     void StartSuccessSequence()
     {
+        isTransioning = true;
+        audiosource.Stop();
         GetComponent<Movement>().enabled = false;
         Invoke("_ReloadLevel", levelLoadDelay);
+        audiosource.PlayOneShot(succesPoint);
+
 
     }
     // to do add SFX upon crash
     // to do add particle effect upon crush
     void StartCrashSequence()
     {
+        isTransioning = true;
+        audiosource.Stop();
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel",levelLoadDelay);
+        audiosource.PlayOneShot(deathingpoint);
+        Start();
     }
    
     void ReloadLevel() // reloadmethod with the build index
@@ -61,24 +75,14 @@ public class ColliionHandler : MonoBehaviour
 
         int _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneInded = _currentSceneIndex + 1;
-        if(nextSceneInded == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneInded == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneInded = 0;
         }
         SceneManager.LoadScene(nextSceneInded);
 
-        
+
+
     }
-    void death()
-    {
-        audiosource = GetComponent<AudioSource>();
-        audiosource.PlayOneShot(deathingpoint);
-    }
-    void Success()
-    {
-        audiosource = GetComponent<AudioSource>();
-        audiosource.PlayOneShot(succesPoint);
-    }
-   
 
 }
