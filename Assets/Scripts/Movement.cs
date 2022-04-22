@@ -7,11 +7,13 @@ public class Movement : MonoBehaviour
     Rigidbody rigitBody;
     AudioSource m_audiosource;
     bool isPlaying;
+
         
 
     [SerializeField] float mainTrust = 100f;
     [SerializeField] float rotateMoveSpeed = 5;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem Thrusting;
         
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             rigitBody.AddRelativeForce(Vector3.up * mainTrust * Time.deltaTime);
+            Thrusting.Play();
             m_audiosource.PlayOneShot(mainEngine);
         }
         else if (!isPlaying)
