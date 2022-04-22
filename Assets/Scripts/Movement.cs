@@ -6,11 +6,11 @@ public class Movement : MonoBehaviour
 {
     Rigidbody rigitBody;
     AudioSource m_audiosource;
-    bool isPlaying;
+   
 
         
 
-    [SerializeField] float mainTrust = 100f;
+    [SerializeField] float mainTrust = 1f;
     [SerializeField] float rotateMoveSpeed = 5;
     [SerializeField] AudioClip mainEngine;
     [SerializeField] ParticleSystem Thrusting;
@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     {
         rigitBody = GetComponent<Rigidbody>();
         m_audiosource = GetComponent<AudioSource>();
-        isPlaying = m_audiosource.isPlaying;
+       
        
     }
 
@@ -37,24 +37,31 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             rigitBody.AddRelativeForce(Vector3.up * mainTrust * Time.deltaTime);
-            Thrusting.Play();
-            m_audiosource.PlayOneShot(mainEngine);
+
+            if (!m_audiosource.isPlaying)
+                if (!m_audiosource.isPlaying)
+                {
+                    m_audiosource.PlayOneShot(mainEngine);
+                }
+            if (!Thrusting.isPlaying)
+            {
+                Thrusting.Play();
+            }
         }
-        else if (!isPlaying)
+
+        else
         {
-            
             m_audiosource.Stop();
+            Thrusting.Stop();
+
+        }
 
         }
 
 
-
-        else if (Input.GetKey(KeyCode.S))
-        {
-            rigitBody.AddRelativeForce(Vector3.down * mainTrust * Time.deltaTime);
-        }
        
-    }
+       
+    
     void RotationMovement() //Keyboard movement
     {
         if (Input.GetKey(KeyCode.A))

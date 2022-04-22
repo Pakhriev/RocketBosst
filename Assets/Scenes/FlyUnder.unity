@@ -401,21 +401,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1183454607 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8073962863809783000, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-  m_PrefabInstance: {fileID: 5484095900947881046}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1245457868 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5637428767179840334, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-  m_PrefabInstance: {fileID: 5484095900947881046}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1490719909 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3317766615929348394, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-  m_PrefabInstance: {fileID: 5484095900947881046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103909227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6875739919845148321, guid: 33bc32792ec0b41268a92cdbda63cedd, type: 3}
@@ -562,29 +547,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1499224261, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: Thrusting
-      value: 
-      objectReference: {fileID: 1183454607}
-    - target: {fileID: 1499224261, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: leftThrusting
-      value: 
-      objectReference: {fileID: 1245457868}
-    - target: {fileID: 1499224261, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: RightThrusting
-      value: 
-      objectReference: {fileID: 1490719909}
-    - target: {fileID: 3317766615929348394, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4462120064595648386, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
       propertyPath: m_Name
       value: Rocket
-      objectReference: {fileID: 0}
-    - target: {fileID: 5637428767179840334, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: looping
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6465938478574649981, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
       propertyPath: m_RootOrder
@@ -628,10 +593,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6465938478574649981, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8073962863809783000, guid: 854d147fca4e64f87adb323d6c84d789, type: 3}
-      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
