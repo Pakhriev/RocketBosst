@@ -16,14 +16,20 @@ public class ColliionHandler : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
     
     bool isTransioning  = false;
+    bool oncollisionDisabled = false;
    void Start()
     {
         audiosource = GetComponent<AudioSource>();
          particleSystem = GetComponent<ParticleSystem>();
     }
+  void Update()
+    {
+        reloadlevelbyKey();
+    }
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
     {
         if(isTransioning) { return; }
+        if (isTransioning || oncollisionDisabled ) { return; }
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -69,6 +75,7 @@ public class ColliionHandler : MonoBehaviour
         audiosource.PlayOneShot(deathingpoint);
         Start();
         crashParticles.Play();
+       
     }
    
     void ReloadLevel() // reloadmethod with the build index
@@ -92,5 +99,18 @@ public class ColliionHandler : MonoBehaviour
 
 
     }
+    void reloadlevelbyKey()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            _ReloadLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            oncollisionDisabled = !oncollisionDisabled;
+        }
+    }
+    
+   
 
 }
