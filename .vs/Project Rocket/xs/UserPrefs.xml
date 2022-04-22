@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{D0516E5F-914E-A53D-0B76-761763BD7743}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ColliionHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
     <Files>
-      <File FileName="Assets/Scripts/Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ColliionHandler.cs" Line="31" Column="44" />
+      <File FileName="Assets/Scripts/ColliionHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="36" Column="49" />
       <File FileName="Assets/Scripts/Ground.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8561e7c6-3d87-4547-bfbe-dc942900788e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c8fe37d6-6151-4fb1-a7a4-c5b0fba3ad78" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

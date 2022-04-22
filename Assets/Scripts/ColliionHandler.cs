@@ -1,19 +1,25 @@
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ColliionHandler : MonoBehaviour
 {
 
     AudioSource audiosource;
+    ParticleSystem particleSystem;
 
     [SerializeField] AudioClip deathingpoint;
     [SerializeField] AudioClip succesPoint;
-     [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] float levelLoadDelay = 2f;
+    
     bool isTransioning  = false;
    void Start()
     {
         audiosource = GetComponent<AudioSource>();
+         particleSystem = GetComponent<ParticleSystem>();
     }
     void OnCollisionEnter(Collision other) // taging object with reloadmethod;
     {
@@ -48,6 +54,7 @@ public class ColliionHandler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
         Invoke("_ReloadLevel", levelLoadDelay);
         audiosource.PlayOneShot(succesPoint);
+        successParticles.Play();
 
 
     }
@@ -61,6 +68,7 @@ public class ColliionHandler : MonoBehaviour
         Invoke("ReloadLevel",levelLoadDelay);
         audiosource.PlayOneShot(deathingpoint);
         Start();
+        crashParticles.Play();
     }
    
     void ReloadLevel() // reloadmethod with the build index
