@@ -59,6 +59,7 @@
     <Compile Include="Assets/Scripts/Movement.cs" />
     <Compile Include="Assets/Scripts/ColliionHandler.cs" />
     <Compile Include="Assets/Scripts/Ground.cs" />
+    <Compile Include="Assets/Scripts/Ocillator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

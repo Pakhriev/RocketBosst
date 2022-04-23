@@ -7,7 +7,7 @@ public class ColliionHandler : MonoBehaviour
 {
 
     AudioSource audiosource;
-    ParticleSystem particleSystem;
+   
 
     [SerializeField] AudioClip deathingpoint;
     [SerializeField] AudioClip succesPoint;
@@ -20,7 +20,7 @@ public class ColliionHandler : MonoBehaviour
    void Start()
     {
         audiosource = GetComponent<AudioSource>();
-         particleSystem = GetComponent<ParticleSystem>();
+      
     }
   void Update()
     {

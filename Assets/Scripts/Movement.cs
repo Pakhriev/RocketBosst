@@ -86,6 +86,7 @@ public class Movement : MonoBehaviour
         {
             StopRotating();
         }
+
         void rotateLeft()
         {
             ApplyRotation(rotateMoveSpeed);
@@ -94,6 +95,8 @@ public class Movement : MonoBehaviour
                 leftThrusting.Play();
             }
         }
+
+
         void rotateRight()
         {
 
@@ -103,6 +106,8 @@ public class Movement : MonoBehaviour
                 RightThrusting.Play();
             }
         }
+
+
         void StopRotating()
         {
             leftThrusting.Stop();
@@ -110,6 +115,8 @@ public class Movement : MonoBehaviour
         }
         
     }
+
+
     public void ApplyRotation(float rotationThisFrame)//Rotation movement
     {
         rigitBody.freezeRotation = true;

@@ -349,6 +349,7 @@
 "Assets/Scripts/ColliionHandler.cs"
 "Assets/Scripts/Ground.cs"
 "Assets/Scripts/Movement.cs"
+"Assets/Scripts/Ocillator.cs"
 -langversion:9.0
 
 /deterministic
