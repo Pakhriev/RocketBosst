@@ -1,31 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ocillator : MonoBehaviour
 {
-    Vector3 StartingPosition;
-    [SerializeField ]Vector3 movementVector;
-      float movementFactor;
+    private Vector3 _startingPosition;
+    [SerializeField] Vector3 movementVector;
+    float _movementFactor;
     [SerializeField] float period = 2f;
+    [SerializeField] private float _offset = 1;
+    private float movementMultiplier = .5f;
 
-    // Start is called before the first frame update
-    void Start()
+    private const float Tau = Mathf.PI * 2;
+
+    private void Start()
     {
-        StartingPosition = transform.position;
-      
+        _startingPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-
+    private void Update()
     {
-        float cycle = Time.time / period;
-        const float tau = Mathf.PI * 2;
-        float wave = Mathf.Sin(cycle * tau);
-        movementFactor = (wave + 1f) / 2;
-        Vector3 offset = movementVector *movementFactor;
-        transform.position = StartingPosition + offset;
-        
+        var cycle = Time.time / period;
+        var wave = Mathf.Sin(cycle * Tau);
+        _movementFactor = (wave + _offset) * movementMultiplier;
+        var offset = movementVector * _movementFactor;
+        transform.position = _startingPosition + offset;
     }
 }

@@ -1,130 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rigitBody;
-    AudioSource m_audiosource;
-   
-
-        
+    private Rigidbody _rigitBody;
+    private AudioSource _mAudiosource;
 
     [SerializeField] float mainTrust = 1f;
     [SerializeField] float rotateMoveSpeed = 5;
     [SerializeField] AudioClip mainEngine;
     [SerializeField] ParticleSystem Thrusting;
     [SerializeField] ParticleSystem leftThrusting;
-    [SerializeField] ParticleSystem RightThrusting;
-        
-    // Start is called before the first frame update
-    void Start()
+
+    [FormerlySerializedAs("RightThrusting")] [SerializeField]
+    ParticleSystem rightThrusting;
+    
+    
+    private void Start()
     {
-        rigitBody = GetComponent<Rigidbody>();
-        m_audiosource = GetComponent<AudioSource>();
-       
-       
+        _rigitBody = GetComponent<Rigidbody>();
+        _mAudiosource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         RotationMovement();
         ProcessThurst();
     }
-    void ProcessThurst()
+
+    private void ProcessThurst()
     {
         if (Input.GetKey(KeyCode.Space))
-        {
             StartThrusting();
-        }
-
         else
-        {
             StopThrusting();
-
-        }
-
-        }
-    
-    void StartThrusting()
-    {
-        rigitBody.AddRelativeForce(Vector3.up * mainTrust * Time.deltaTime);
-
-        if (!m_audiosource.isPlaying)
-            if (!m_audiosource.isPlaying)
-            {
-                m_audiosource.PlayOneShot(mainEngine);
-            }
-        if (!Thrusting.isPlaying)
-        {
-            Thrusting.Play();
-        }
     }
-    void StopThrusting()
+
+    private void StartThrusting()
     {
-        m_audiosource.Stop();
+        _rigitBody.AddRelativeForce(Vector3.up * mainTrust * Time.deltaTime);
+
+        if (!_mAudiosource.isPlaying)
+            if (!_mAudiosource.isPlaying)
+                _mAudiosource.PlayOneShot(mainEngine);
+
+        if (!Thrusting.isPlaying)
+            Thrusting.Play();
+    }
+
+    private void StopThrusting()
+    {
+        _mAudiosource.Stop();
         Thrusting.Stop();
     }
 
 
-       
-       
-    
     void RotationMovement() //Keyboard movement
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            rotateLeft();
+        var direct = -Input.GetAxis("Horizontal"); // -1 to 1
 
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rotateRight();
-        }
-        else
-        {
-            StopRotating();
-        }
+        ApplyRotation(rotateMoveSpeed * direct);
 
-        void rotateLeft()
+        switch (direct)
         {
-            ApplyRotation(rotateMoveSpeed);
-            if (!leftThrusting.isPlaying)
-            {
+            case > 0 when !leftThrusting.isPlaying:
                 leftThrusting.Play();
-            }
+                break;
+            case < 0 when !rightThrusting.isPlaying:
+                rightThrusting.Play();
+                break;
+            default:
+                leftThrusting.Stop();
+                rightThrusting.Stop();
+                break;
         }
-
-
-        void rotateRight()
-        {
-
-            ApplyRotation(-rotateMoveSpeed);
-            if (RightThrusting.isPlaying)
-            {
-                RightThrusting.Play();
-            }
-        }
-
-
-        void StopRotating()
-        {
-            leftThrusting.Stop();
-            RightThrusting.Stop();
-        }
-        
     }
 
 
-    public void ApplyRotation(float rotationThisFrame)//Rotation movement
+    public void ApplyRotation(float rotationThisFrame) //Rotation movement
     {
-        rigitBody.freezeRotation = true;
+        _rigitBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
-        rigitBody.freezeRotation = false;
-        
+        _rigitBody.freezeRotation = false;
     }
-    
-       
-    
 }
